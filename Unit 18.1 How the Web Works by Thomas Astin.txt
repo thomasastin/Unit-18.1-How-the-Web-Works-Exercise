@@ -1,0 +1,76 @@
+- What is HTTP?
+HTTP is called the Hyper Text Transfer Protocol and it's the essentially how the World Wide Web works, web browsers use HTTP to interact with the web servers. The protocol part of HTTP controls the requests and what is delivered from the request.
+
+- What is a URL? A URL is called Uniform Resource Locator and is the web address that refers to web pages, images, or documents. 
+
+- What is DNS? The DNS stands for The Domain Name System and it turns web domain names that we can read such as google.com into an IP address with numbers so the system can load the correct address.
+
+- What is a query string? A query string is attached to the URL like an extension and it carries extra information that help customize web pages/pass data. It's the part of the URL after the question mark
+
+- What are two HTTP verbs and how are they different? The two HTTP verbs are GET and POST. The GET request is when a browser is asking for something such as a web page or an image. The POST request is when you fill out a form on a website, it includes data to the server and it changes the server state without refreshing.
+
+- What is an HTTP request? An HTTP request example would be when a browser wants to get a webpage or interact with a web app.
+
+- What is an HTTP response? An HTTP response is the when the web server send back the result of someone processing an HTTP request. It includes information about the request's status and requested source. The response has a specific structure as well.
+
+- What is an HTTP header? Give a couple examples of request and response headers you have seen. An HTTP header is a part of info transferred between client (web browser) and a web server, they can appear in an HTTP request and response. There is the Accept and User-Agent request headers and then there's Age, Location, and Server response headers.
+
+- What are the processes that happen when you type “http://somesite.com/some/page.html” into a browser? When you type  that and press enter, the first thing that happens is the browser searches for the IP address using the DNS. Secondly, the browser gets a TCP connection with the web server hosting the website. Then, the browser sends an HTTP request to the server for a specific web page. Next, the server processes the request and an HTTP response is given. Finally, the browser loads the HTML and displays the webpage in an interactable form.
+
+1. Using ***curl***, make a ***GET*** request to the *icanhazdadjoke.com* API to find all jokes involving the word “pirate”
+curl -H "Accept: application/json" https://icanhazdadjoke.com/search?term=pirate
+2. Use ***dig*** to find what the IP address is for *icanhazdadjoke.com*
+`1qwz  dig icanhazdadjoke.com +short
+
+3. Make a simple web page and serve it using ***python3 -m http.server***. Visit the page in a browser.  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Simple Web Page</title>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+    <p>This is my first web page.</p>
+</body>
+</html>
+ 
+is a great index.html to use, then use the terminal to get to the index.html and then start the Python HTTP server by typing (python3 -m http.server) without the parentheses. Visit http://localhost:8000
+
+
+## **Part Three: Explore Dev Tools**
+
+Build a very simple HTML form that uses the GET method (it can use the same page URL for the action) when the form is submitted.
+
+<!DOCTYPE html>
+<html lang ="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale
+=1.0">
+    <title>Simple GET Form</title>
+</head>
+<body>
+    <h1>Simple Form</h1>
+    <form method="GET" action="">
+       <label for="name">Name:</label>
+       <input type="text" id ="name" name="name"><br><br>
+       <label for="email">Email:</label>                         (FIRST FIELD ADDED)
+       <input type="email" id="email" name="email"><br><br>      (SECOND FIELD ADDED)
+       <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+
+
+Edit the page to change the form type to POST, refresh in the browser and re-submit. Do you still see the field in the query string? Explore in Chrome how you can view the request and response headers, as well as the form data. No, the form fields are not shown on the URL query string anymore.
+
+## **Part Four: Explore the URL API**
+
+At times, it’s useful for your JavaScript to look at the URL of the browser window and change how the script works depending on parts of that (particularly the query string).
+
+[Read about the URL API](https://developer.mozilla.org/en-US/docs/Web/API/URL)
+
+Try some of the code examples in the Chrome Console so that you can get comfortable with the basic methods and properties for instances of the URL class.
+
+
